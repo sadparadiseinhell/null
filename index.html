@@ -1,27 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="us">
+
 <head>
 	<title>null</title>
+	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="icon" href="bookmark.png">
 	<base target="_blank">
 </head>
-<body>
-	
-	<input type="checkbox" id="chb_theme">
-	<label class="btn_theme" for="chb_theme"></label>
 
-	<input type="checkbox" id="chb_header">
-	<label class="btn_header" for="chb_header"></label>
-	
+<body>
+	<div class="sidebar-wrapper">
+		<div class="sidebar">
+			<div class="buttons">
+				<input type="checkbox" id="chb_theme">
+				<label class="btn_theme" for="chb_theme"></label>
+				<input type="checkbox" id="chb_header">
+				<label class="btn_header" for="chb_header"></label>
+				<input type="checkbox" id="chb_menu">
+				<label class="btn_menu" for="chb_menu"></label>
+			</div>
+			<div class="sidebar__settings">
+				<h3>Weather</h3>
+				<h4>API</h4>
+				<input class="sidebar__input" type="text" placeholder="Enter key" id="key" autocomplete="off">
+				<h4>City</h4>
+				<input class="sidebar__input" type="text" placeholder="Enter city" id="city">
+				<div class="sidebar__radio">
+					<label class="control control-radio">
+						&deg;C
+						<input type="radio" name="temp_unit" id="celsius">
+						<div class="control__indicator"></div>
+					</label>
+					<label class="control control-radio">
+						&deg;F
+						<input type="radio" name="temp_unit" id="fahrenheit">
+						<div class="control__indicator"></div>
+					</label>
+				</div>
+				<button class="sidebar__button" id="weather_apply">Apply</button>
+			</div>
+			<div class="sidebar__settings">
+				<h3>Greeting</h3>
+				<h4>Name</h4>
+				<input class="sidebar__input" type="text" id="greeting_name" name="name_field">
+				<button class="sidebar__button" id="name_apply">Apply</button>
+			</div>
+			<div class="sidebar__settings">
+				<h3>Theme</h3>
+				<h4>Background</h4>
+				<input type="color" id="bg_input">
+				<h4>Foreground</h4>
+				<input type="color" id="fg_input">
+				<h4>Accent</h4>
+				<input type="color" id="accent_input">
+				<div class="sidebar__button-container">
+					<button class="sidebar__button" id="color_apply">Apply</button>
+					<button class="sidebar__button" id="color_reset">Reset</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="container">
 		<div class="header">
-			<h1 class="header__greeting">Howdy, <span class="header__greeting__name">Anon</span>.</h1>
+			<h1 class="header__greeting">Howdy, <span class="header__greeting-name">Anon</span>.</h1>
 			<div class="header__weather">
-				<f id="header__weather__alert"></f>
-				<f id="header__weather__info"></f>
+				<p id="header__weather-alert"></p>
+				<p id="header__weather-info"></p>
 			</div>
-			<hr class="header__line">
+			<form class="search-form" action="https://google.com/search" method="get">
+				<input type="text" class="search-form__input" autocomplete="off" name="q">
+				<button type="submit" class="search-form__button">
+					<i class="fa fa-search"></i>
+				</button>
+			</form>
 		</div>
 		<div class="main">
 			<a id="twitter" href="https://twitter.com/">
@@ -36,13 +88,10 @@
 			<a id="columns" href="https://columns.app/">
 				<i class="fas fa-columns"></i>
 			</a>
-			<a id="twitch" href="https://www.twitch.tv/">
-				<i class="fab fa-twitch"></i>
-			</a>
 			<a id="spotify" href="https://open.spotify.com/browse/featured">
 				<i class="fab fa-spotify"></i>
 			</a>
-			<a id="github"href="https://www.github.com/">
+			<a id="github" href="https://www.github.com/">
 				<i class="fab fa-github"></i>
 			</a>
 			<a id="reddit" href="https://www.reddit.com/">
@@ -54,7 +103,9 @@
 	<script src="js/theme.js"></script>
 	<script src="js/greeting.js"></script>
 	<script src="js/weather.js"></script>
+	<script src="js/menu.js"></script>
 	<script src="js/header.js"></script>
 
 </body>
+
 </html>

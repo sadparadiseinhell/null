@@ -1,31 +1,50 @@
-// Element
-var elem = document.querySelector('.header__greeting');
-
-// Name
-var name = 'Anon';
-var elem_name = `<span class="header__greeting__name">${name}</span>.`;
+let greeting = document.querySelector('.header__greeting');
+let buttonApplyName = document.getElementById('name_apply');
+let nameInput = document.getElementById('greeting_name');
 
 // Greetings
-var night = 'Good night';
-var morning = 'Good morning';
-var afternoon = 'Good afternoon';
-var evening = 'Good evening';
+const night = 'Good night';
+const morning = 'Good morning';
+const afternoon = 'Good afternoon';
+const evening = 'Good evening';
+
+// Name
+if (localStorage.getItem('name') !== null) {
+	let name = localStorage.getItem('name');
+	let greetingName = `<span class="header__greeting-name">${name}</span>.`;
+	setGreeting(greetingName);
+	nameInput.placeholder = name;
+} else {
+	let name = 'Anon';
+	let greetingName = `<span class="header__greeting-name">${name}</span>.`
+	setGreeting(greetingName);
+	nameInput.placeholder = name;
+}
+
+buttonApplyName.onclick = () => {
+	if (nameInput.value !== '') {
+		let greetingName = `<span class="header__greeting-name">${nameInput.value}</span>.`;
+		setGreeting(greetingName);
+
+		localStorage.setItem('name', nameInput.value);
+
+		nameInput.placeholder = nameInput.value;
+		nameInput.value = '';
+		nameInput.blur();
+	}
+};
 
 // Hours of the greetings
-greeting();
-
-function greeting() {
-	var today = new Date();
-	var hour = today.getHours();
+function setGreeting(greetingName) {
+	let hour = new Date().getHours();
 
 	if (hour >= 23 || hour < 6) {
-		elem.innerHTML = `${night}, ${elem_name}`;
+		greeting.innerHTML = `${night}, ${greetingName}`;
 	} else if (hour >= 6 && hour < 12) {
-		elem.innerHTML = `${morning}, ${elem_name}`;
+		greeting.innerHTML = `${morning}, ${greetingName}`;
 	} else if (hour >= 12 && hour < 17) {
-		elem.innerHTML = `${afternoon}, ${elem_name}`;
+		greeting.innerHTML = `${afternoon}, ${greetingName}`;
 	} else {
-		elem.innerHTML = `${evening}, ${elem_name}`;
+		greeting.innerHTML = `${evening}, ${greetingName}`;
 	}
-	setTimeout(greeting, 3600000);
 }

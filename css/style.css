@@ -85,6 +85,7 @@ a {
 }
 
 .main a:hover {
+	color: var(--accent);
 	transform: scale(1.2);
 	transition: .3s;
 }
@@ -203,20 +204,6 @@ a {
 		margin: 0px 0px 0px -175px;
 	}
 }
-
-#reddit:hover {color: #ff4500;}
-
-#youtube:hover {color: #ff0000;}
-
-#twitter:hover {color: #1da1f2;}
-
-#github:hover {color: #6e5494;}
-
-#spotify:hover {color: #1db954;}
-
-#inbox:hover {color: #fbbc05;}
-
-#columns:hover {color: #5d9cf5;}
 
 .buttons {
 	position: absolute;

@@ -3,7 +3,7 @@
 ## Features
 - **Dark/Light Theme** changes by pressing the :waning_crescent_moon: button. In the settings you can set your own colors for both themes
 - **Weather** displays temperature and description of weather conditions
-- **Search** bar opens when you press `Shift + s`. `Escape` button to close
+- **Search** bar opens when you press `S`. To close press `Esc`
 
 ## Settings
 ### Links

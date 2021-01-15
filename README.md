@@ -10,7 +10,7 @@
 To add your own link to your favorite site, you just need to add a line to the HTML code, for example:
 
 ```html
-<a id="github" href="https://www.github.com/">
+<a href="https://www.github.com/">
   <i class="fab fa-github"></i>
 </a>
 ```

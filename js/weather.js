@@ -92,12 +92,19 @@ function getWeatherInfo(key, city) {
 }
 
 function drawWeather() {
-	if (JSON.parse(localStorage.getItem('weather')).tempUnit === 'C') {
+	if (weatherLS) {
+		if (JSON.parse(weatherLS).tempUnit === 'C') {
+			temp = `${celsius}\u00B0C`;
+			radioCelsius.checked = true;
+		} else {
+			temp = `${fahrenheit}\u00B0F`;
+			radioFahrenheit.checked = true;
+		}
+	}
+
+	if (!weatherLS) {
 		temp = `${celsius}\u00B0C`;
 		radioCelsius.checked = true;
-	} else {
-		temp = `${fahrenheit}\u00B0F`;
-		radioFahrenheit.checked = true;
 	}
 
 	info.innerHTML = `${description}, <span class="header__weather-temp">${temp}</span>`;

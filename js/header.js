@@ -36,10 +36,14 @@ function hideHeader() {
 
 document.addEventListener('keyup', (event) => {
 	let header = document.querySelector('.header');
+	let sidebar = document.querySelector('.sidebar-wrapper');
 	let searchForm = document.querySelector('.search-form');
 	let searchInput = document.querySelector('.search-form__input');
 
-	if (event.key === 'S') {
+	if (searchInput !== document.activeElement &&
+		event.keyCode >= 65 &&
+		event.keyCode <= 90 &&
+		!sidebar.classList.contains('show-sidebar')) {
 		if (buttonHeader.checked === false) {
 			header.style.opacity = '.75';
 			header.style.zIndex = '1';
@@ -54,6 +58,7 @@ document.addEventListener('keyup', (event) => {
 		header.style.marginBottom = '35px';
 		searchForm.classList.add('show-search');
 		searchInput.focus();
+		searchInput.value = event.key;
 	}
 
 	if (event.code === 'Escape') {
